@@ -22,6 +22,9 @@ const aldrich = Aldrich({
 export const metadata: Metadata = {
   title: "Z4R0",
   description: "Z4R0 is a smart agent protocol built on Ethereum",
+  icons: {
+    icon: "/images/logo.png"
+  }
 };
 
 export default function RootLayout({
