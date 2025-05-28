@@ -5,7 +5,7 @@ import { CardSpotlight } from '@/components/ui/card-spotlight';
 
 export default function Tokenomics() {
   return (
-    <section className="w-full bg-[#010613] py-20">
+    <section id="token" className="w-full bg-[#010613] py-20">
       <div className="w-[70vw] mx-auto">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
           {/* Left Side - Token Info */}

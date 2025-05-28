@@ -1,4 +1,5 @@
 import React from "react";
+import Image from 'next/image';
 
 const leftItems = [
   {
@@ -33,6 +34,7 @@ const rightItems = [
 export default function WhatMakesDifferent() {
   return (
     <section
+      id="about"
       className="w-[70vw] mx-auto py-32 flex flex-col gap-16 relative overflow-visible"
       style={{ background: '#010613', marginTop: '-10px', zIndex: 30 }}
     >
@@ -64,21 +66,86 @@ export default function WhatMakesDifferent() {
           0%, 100% { opacity: 0.85; }
           50% { opacity: 0.45; }
         }
+        
+        @media (max-width: 1100px) {
+          .what-makes-col {
+            flex: 0 0 45% !important;
+            max-width: 45% !important;
+          }
+          .what-makes-center {
+            display: none !important;
+          }
+          .dot-line-dot {
+            display: none !important;
+          }
+          .ipad-header {
+            display: flex !important;
+            margin-bottom: 40px;
+          }
+        }
+
+        @media (max-width: 767px) {
+          .what-makes-row {
+            flex-direction: column !important;
+            gap: 30px !important;
+          }
+          .what-makes-col {
+            flex: 0 0 100% !important;
+            max-width: 100% !important;
+          }
+          .what-makes-center {
+            display: none !important;
+          }
+          .mobile-header {
+            display: flex !important;
+            margin-bottom: 30px;
+          }
+          .ipad-header {
+            display: none !important;
+          }
+        }
       `}</style>
+      
+      {/* iPad版本专用标题 */}
+      <div className="ipad-header hidden items-center gap-3 mb-0">
+        <Image
+          src="/images/logo-white.png"
+          alt="Z4R0 Logo"
+          width={40}
+          height={40}
+        />
+        <h2 className="text-white text-3xl font-medium font-[var(--font-aldrich)]">
+          What makes Z4R0 different?
+        </h2>
+      </div>
+      
+      {/* 手机版专用标题 */}
+      <div className="mobile-header hidden items-center gap-3 mb-0">
+        <Image
+          src="/images/logo-white.png"
+          alt="Z4R0 Logo"
+          width={30}
+          height={30}
+        />
+        <h2 className="text-white text-2xl font-medium font-[var(--font-aldrich)]">
+          What makes Z4R0 different?
+        </h2>
+      </div>
+      
       {/* 中间大背景图 */}
       <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none z-0" style={{width:'600px',height:'600px'}}>
         <img src="/images/image-center.png" alt="center visual" className="w-full h-full object-contain soft-pulse" />
       </div>
       {/* 三行对齐布局 */}
       {[0, 1, 2].map((idx) => (
-        <div key={idx} className="flex flex-row items-center gap-16 min-h-[110px] relative z-10">
+        <div key={idx} className="flex flex-row items-center gap-16 min-h-[110px] relative z-10 what-makes-row">
           {/* 左侧item+dot-line-dot */}
-          <div className="flex-1 flex items-center relative">
+          <div className="flex-1 what-makes-col flex items-center relative">
             <div className="flex-1">
               <div className="text-white text-xl font-medium mb-2 font-[var(--font-aldrich)]">{leftItems[idx].title}</div>
               <div className="text-white/80 text-base leading-relaxed font-[var(--font-geist-sans)]">{leftItems[idx].desc}</div>
             </div>
-            <div className="flex items-center ml-4">
+            <div className="dot-line-dot flex items-center ml-4">
               <div className="w-3 h-3 bg-white rounded-full" />
               <svg width="80" height="6" className="mx-0" style={{display:'block'}}>
                 <line x1="0" y1="3" x2="80" y2="3" stroke="#fff" strokeWidth="3" className="dash-animate" />
@@ -87,7 +154,7 @@ export default function WhatMakesDifferent() {
             </div>
           </div>
           {/* 中间heading（只在第2行显示） */}
-          <div className="flex-1 flex items-center justify-center">
+          <div className="flex-1 what-makes-center flex items-center justify-center">
             {idx === 1 ? (
               <h2 className="text-4xl text-white font-medium font-[var(--font-aldrich)] text-center leading-tight">
                 What makes<br />Z4R0 different?
@@ -95,8 +162,8 @@ export default function WhatMakesDifferent() {
             ) : null}
           </div>
           {/* 右侧dot-line-dot+item */}
-          <div className="flex-1 flex items-center relative justify-end">
-            <div className="flex items-center mr-4">
+          <div className="flex-1 what-makes-col flex items-center relative justify-end">
+            <div className="dot-line-dot flex items-center mr-4">
               <div className="w-3 h-3 bg-white rounded-full" />
               <svg width="80" height="6" className="mx-0" style={{display:'block'}}>
                 <line x1="0" y1="3" x2="80" y2="3" stroke="#fff" strokeWidth="3" className="dash-animate-left" />
