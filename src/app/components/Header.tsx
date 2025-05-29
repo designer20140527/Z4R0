@@ -25,7 +25,7 @@ export default function Header() {
             'transition-all duration-500 ease-in-out',
             'hidden md:block',
             scrolled
-              ? 'top-6 w-[36vw] bg-white rounded-full shadow-lg py-0 px-0 h-[64px] flex items-center scrolled-header'
+              ? 'top-6 w-[36vw] h-auto bg-white rounded-full shadow-lg py-4 px-4 flex items-center scrolled-header'
               : 'top-0 w-[70vw] bg-transparent rounded-none shadow-none py-6 h-auto',
           ].join(' ')
         }
