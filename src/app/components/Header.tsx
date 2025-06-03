@@ -77,7 +77,7 @@ export default function Header() {
           {/* Navigation and Social Links */}
           <div className="flex items-center gap-6 header-socials">
             <Link
-              href="https://gitbook.io/z4r0"
+              href="https://z4r0.gitbook.io/docs"
               target="_blank"
               className={
                 scrolled
